@@ -6,6 +6,4 @@ This file is used to list changes made in each version of the zoom cookbook.
 
 Initial release.
 
-- change 0
-- change 1
-
+- Install Zoom using default options. The initial release uses the latest version of Zoom at the moment, which is 4.4.53595
