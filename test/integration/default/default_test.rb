@@ -5,14 +5,10 @@
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/
 
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root'), :skip do
-    it { should exist }
-  end
-end
+return unless os.windows?
 
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
+query_product_name = '(Get-WmiObject -Class Win32_Product | Select -ExpandProperty Name)'
+
+describe powershell(query_product_name) do
+  its('stdout') { should match(/Zoom/) }
 end
